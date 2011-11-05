@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ls *.jpg *.JPG */*.jpg */*.JPG|grep -v thumb|while read file
 do
 	echo $file

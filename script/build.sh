@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 menu=../layout/menu.html
 echo "<ul class='dropdown'><li><a href='#'>Albums</a><ul class='sub_menu'>" > $menu
