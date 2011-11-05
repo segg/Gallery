@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>GG's Gallery</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="layout/style.css" />
+		<link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+		<link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:bold' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script type="text/javascript" src="fancybox/jquery.easing-1.4.pack.js"></script>
+		<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+		<script type="text/javascript" language="javascript" src="js/jquery.dropdownPlain.js"></script>			
+</head>
+
+<body>
+
+	<div id="container">
+		<div id="header">
+			<h1>GG's Gallery</h1><h2 id="album">- Home</h2>
+			<!--#include virtual="layout/menu.html" --> 
+		</div>
+		<div id="content">
+			<!--#include virtual="content/Home.html" --> 
+		</div>
+		<div id="footer">
+			<!--#config timefmt="%B %d, %Y" -->
+			Last updated on <!--#echo var="LAST_MODIFIED" -->
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript">
+function replaceContent(name)
+{
+	$("#album").html("- "+name);
+	$("#content").html("<h3>Loading...</h3>");
+	$.get("content/"+name+".html",
+			function(data)
+			{
+			$("#content").hide();
+			$("#content").html(data);
+			$("#content").fadeIn();
+			}
+		 );
+}
+</script>
+</html>
