@@ -14,6 +14,10 @@ do
 done
 echo "</ul></li></ul>" >> $menu
 
+if [ ! -d ../content ];
+then
+    mkdir ../content
+fi
 
 find . -type d|while read directory
 do
