@@ -1,0 +1,3 @@
+Bash scripts should be run in ../photos
+resize.sh - resize photos to 800x800 and generate thumbnails
+build.sh - should be run after resize.sh to generate html files
