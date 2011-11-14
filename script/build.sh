@@ -35,7 +35,10 @@ do
 	rm "$file"
 	ls "$directory"|grep -v thumb|grep jpg -i|while read line
 	do
-		echo "<a class='photo' rel='p' href=\"photos/$path/$line\" ><img src=\"photos/$path/$line.thumb.jpg\" onmouseover=\"javascript:this.id='caller';relocate();\" onmouseout=\"javascript:this.id='';hide();\" /></a>" >> "$file"
+		echo "<a class='photo' rel='p' href=\"photos/$path/$line\" title='aaaa'><img
+        src=\"photos/$path/$line.thumb.jpg\"/></a>" >> "$file"
+		#echo "<a class='photo' rel='p' href=\"photos/$path/$line\" ><img src=\"photos/$path/$line.thumb.jpg\" onmouseover=\"javascript:this.id='caller';relocate();\" onmouseout=\"javascript:this.id='';hide();\" /></a>" >> "$file"
 	done
-	echo '<img height=300 id="src" style="position:absolute;display:none;"></script><SCRIPT LANGUAGE="javascript">src=$("#src");function relocate(){caller=$("#caller");url=caller.attr("src");src.attr("src",url.substring(0,url.indexOf(".thumb.jpg")));var offset=caller.offset();if(offset.left<($(document).scrollLeft()+$(window).width()-500)){x=offset.left+103;}else{x=offset.left-400;}y=offset.top;if(offset.top>$(document).scrollTop()+$(window).height()-320){y=$(document).scrollTop()+$(window).height()-320;}src.css("left",x);src.css("top",y);src.css("border","10px solid white");src.fadeIn();}function hide(){src.hide();}$("a.photo").fancybox();</SCRIPT>' >> "$file"
+    echo '<script language="javascript">$("a.photo").fancybox();</script>' >> "$file"
+	#echo '<img height=300 id="src" style="position:absolute;display:none;"></script><SCRIPT LANGUAGE="javascript">src=$("#src");function relocate(){caller=$("#caller");url=caller.attr("src");src.attr("src",url.substring(0,url.indexOf(".thumb.jpg")));var offset=caller.offset();if(offset.left<($(document).scrollLeft()+$(window).width()-500)){x=offset.left+103;}else{x=offset.left-400;}y=offset.top;if(offset.top>$(document).scrollTop()+$(window).height()-320){y=$(document).scrollTop()+$(window).height()-320;}src.css("left",x);src.css("top",y);src.css("border","10px solid white");src.fadeIn();}function hide(){src.hide();}$("a.photo").fancybox();</SCRIPT>' >> "$file"
 done
