@@ -13,10 +13,10 @@ do
 		height=`identify "$thumbfile"|sed 's/.*JPEG //'|cut -d" " -f1|cut -d"x" -f2`
 		if [ $height -ne 90 ];
 		then
-			convert "$file" -verbose -resize 200x90 "$thumbfile"
+			convert "$file" -verbose -resize 2000x90 "$thumbfile"
 		fi
 	else
-		convert "$file" -verbose -resize 200x90 "$thumbfile"
+		convert "$file" -verbose -resize 2000x90 "$thumbfile"
 	fi
 #	if [ -f "$thumbfile" ];
 #	then
