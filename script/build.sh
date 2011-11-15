@@ -35,7 +35,7 @@ do
 	rm "$file"
 	ls "$directory"|grep -v thumb|grep jpg -i|while read line
 	do
-		echo "<a class='photo' rel='p' href=\"photos/$path/$line\" title='aaaa'><img
+		echo "<a class='photo' rel='p' href='photos/$path/$line' title='$line'><img
         src=\"photos/$path/$line.thumb.jpg\"/></a>" >> "$file"
 		#echo "<a class='photo' rel='p' href=\"photos/$path/$line\" ><img src=\"photos/$path/$line.thumb.jpg\" onmouseover=\"javascript:this.id='caller';relocate();\" onmouseout=\"javascript:this.id='';hide();\" /></a>" >> "$file"
 	done
