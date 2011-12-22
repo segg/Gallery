@@ -4,9 +4,9 @@ do
 	echo $file
 	thumbfile=$file.thumb.jpg
 	height=`identify "$file"|sed 's/.*JPEG //'|cut -d" " -f1|cut -d"x" -f2`
-	if [ $height -gt 800 ];
+	if [ $height -gt 1024 ];
 	then
-		convert "$file" -verbose -resize 800x800  "$file"
+		convert "$file" -verbose -resize 1024x1024  "$file"
 	fi
 	if [ -f "$thumbfile" ];
 	then
